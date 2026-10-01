@@ -21,6 +21,7 @@ sudo apt install -y \
     zoxide \
     fastfetch \
     git-delta \
-    fontconfig
+    fontconfig \
+    xz-utils
 
 echo "==> Paquetes del sistema instalados correctamente."
