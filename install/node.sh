@@ -15,6 +15,7 @@ export NVM_DIR="$HOME/.nvm"
 # Cargar NVM
 if [ -s "$NVM_DIR/nvm.sh" ]; then
     source "$NVM_DIR/nvm.sh"
+    export PATH="$NVM_BIN:$PATH"
 else
     echo "ERROR: No se pudo cargar NVM."
     exit 1
@@ -30,7 +31,7 @@ nvm alias default 'lts/*'
 
 # path pnpm pre-install
 export PNPM_HOME="$HOME/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+export PATH="$PNPM_HOME/bin:$PATH"
 
 # Corepack + pnpm
 echo "==> Configurando Corepack..."
