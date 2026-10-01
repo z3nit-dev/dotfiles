@@ -20,6 +20,7 @@ sudo apt install -y \
     eza \
     zoxide \
     fastfetch \
-    git-delta
+    git-delta \
+    fontconfig
 
 echo "==> Paquetes del sistema instalados correctamente."
