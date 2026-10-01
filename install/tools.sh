@@ -15,7 +15,7 @@ fi
 # OpenCode
 if ! command -v opencode >/dev/null 2>&1; then
     echo "==> Instalando OpenCode..."
-    curl -fsSL https://opencode.ai/install | bash
+    curl -fsSL https://opencode.ai/install | bash -s -- --no-modify-path
 else
     echo "==> OpenCode ya está instalado."
 fi
