@@ -1,0 +1,42 @@
+# Secrets and credentials
+*.pem
+*.key
+*.p12
+*.pfx
+.env
+.env.*
+!.env.example
+
+# SSH private keys
+ssh/id_*
+ssh/*.pem
+ssh/*.key
+
+# Shell history
+.bash_history
+.zsh_history
+.lesshst
+
+# Generated shell state
+.zcompdump*
+.zsh_sessions/
+
+# Caches
+.cache/
+.npm/
+.nvm/
+.local/share/
+
+# Dependencies
+node_modules/
+
+# IDE / editor state
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local backups
+.dotfiles-backup/

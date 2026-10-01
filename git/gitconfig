@@ -1,0 +1,24 @@
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
+[color "diff"]
+	meta = yellow
+	frag = cyan
+	old = red
+	new = green
+[diff]
+	algorithm = histogram
+	renames = true
+	mnemonicPrefix = true
+	colorMoved = default
+[core]
+	pager = delta
+[delta]
+	navigate = true
+	side-by-side = true
+	line-numbers = true
+[merge]
+	conflictstyle = zdiff3
+[interactive]
+	diffFilter = delta --color-only
