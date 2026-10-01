@@ -13,31 +13,36 @@ echo "Dotfiles: $DOTFILES_DIR"
 echo
 
 # 1. Paquetes del sistema
-echo "==> [1/5] Paquetes del sistema"
+echo "==> [1/6] Paquetes del sistema"
 "$DOTFILES_DIR/install/apt.sh"
 
 # Guardar identidad Git actual antes de reemplazar ~/.gitconfig
 GIT_NAME="$(git config --global user.name || true)"
 GIT_EMAIL="$(git config --global user.email || true)"
 
+# 2. Fuentes
+echo
+echo "==> [2/6] FiraCode Nerd Font"
+"$DOTFILES_DIR/install/fonts.sh"
+
 # 2. Shell
 echo
-echo "==> [2/5] Zsh y Oh My Zsh"
+echo "==> [3/6] Zsh y Oh My Zsh"
 "$DOTFILES_DIR/install/shell.sh"
 
 # 3. Node.js
 echo
-echo "==> [3/5] Node.js y herramientas frontend"
+echo "==> [4/6] Node.js y herramientas frontend"
 "$DOTFILES_DIR/install/node.sh"
 
 # 4. Herramientas externas
 echo
-echo "==> [4/5] Herramientas externas"
+echo "==> [5/6] Herramientas externas"
 "$DOTFILES_DIR/install/tools.sh"
 
 # 5. Configuración
 echo
-echo "==> [5/5] Configuración"
+echo "==> [6/6] Configuración"
 "$DOTFILES_DIR/install/config.sh"
 
 # Git identity
