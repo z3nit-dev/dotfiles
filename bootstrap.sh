@@ -4,10 +4,6 @@ set -e
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Guardar identidad Git actual antes de reemplazar ~/.gitconfig
-GIT_NAME="$(git config --global user.name || true)"
-GIT_EMAIL="$(git config --global user.email || true)"
-
 echo
 echo "========================================"
 echo "       Bootstrap de entorno Linux"
@@ -19,6 +15,10 @@ echo
 # 1. Paquetes del sistema
 echo "==> [1/5] Paquetes del sistema"
 "$DOTFILES_DIR/install/apt.sh"
+
+# Guardar identidad Git actual antes de reemplazar ~/.gitconfig
+GIT_NAME="$(git config --global user.name || true)"
+GIT_EMAIL="$(git config --global user.email || true)"
 
 # 2. Shell
 echo
