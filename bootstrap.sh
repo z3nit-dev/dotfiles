@@ -4,6 +4,10 @@ set -e
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# Guardar identidad Git actual antes de reemplazar ~/.gitconfig
+GIT_NAME="$(git config --global user.name || true)"
+GIT_EMAIL="$(git config --global user.email || true)"
+
 echo
 echo "========================================"
 echo "       Bootstrap de entorno Linux"
@@ -40,21 +44,28 @@ echo "==> [5/5] Configuración"
 echo
 echo "==> Configuración de identidad Git"
 
-GIT_NAME="$(git config --global user.name || true)"
-GIT_EMAIL="$(git config --global user.email || true)"
-
 if [ -z "$GIT_NAME" ]; then
     read -r -p "Nombre para Git: " GIT_NAME
-    git config --global user.name "$GIT_NAME"
 else
     echo "    Nombre: $GIT_NAME"
 fi
 
 if [ -z "$GIT_EMAIL" ]; then
     read -r -p "Email para Git: " GIT_EMAIL
-    git config --global user.email "$GIT_EMAIL"
 else
     echo "    Email: $GIT_EMAIL"
+fi
+
+git config --global user.name "$GIT_NAME"
+git config --global user.email "$GIT_EMAIL"
+
+# Shell predeterminada
+echo
+if [ "$SHELL" != "$(command -v zsh)" ]; then
+    echo "==> Estableciendo Zsh como shell predeterminada..."
+    chsh -s "$(command -v zsh)"
+else
+    echo "==> Zsh ya es la shell predeterminada."
 fi
 
 echo
