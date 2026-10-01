@@ -28,6 +28,10 @@ fi
 
 nvm alias default 'lts/*'
 
+# path pnpm pre-install
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
 # Corepack + pnpm
 echo "==> Configurando Corepack..."
 corepack enable
