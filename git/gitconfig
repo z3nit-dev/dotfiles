@@ -18,7 +18,5 @@
 	navigate = true
 	side-by-side = true
 	line-numbers = true
-[merge]
-	conflictstyle = zdiff3
 [interactive]
 	diffFilter = delta --color-only

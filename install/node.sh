@@ -22,12 +22,13 @@ else
 fi
 
 # Node.js LTS
-if ! command -v node >/dev/null 2>&1; then
+if [ "$(nvm current)" = "system" ] || [ "$(nvm current)" = "none" ]; then
     echo "==> Instalando Node.js LTS..."
     nvm install --lts
 fi
 
 nvm alias default 'lts/*'
+nvm use --lts
 
 # path pnpm pre-install
 export PNPM_HOME="$HOME/.local/share/pnpm"
@@ -46,4 +47,4 @@ echo "==> Node.js configurado correctamente."
 echo "Node: $(node --version)"
 echo "npm:  $(npm --version)"
 echo "pnpm: $(pnpm --version)"
-echo "ng:   $(ng version --skip-git 2>/dev/null | head -n 1 || true)"
+echo "ng:   $(ng version 2>/dev/null | grep -m1 'Angular CLI' || true)"

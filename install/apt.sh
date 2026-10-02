@@ -17,10 +17,7 @@ sudo apt install -y \
     keychain \
     micro \
     bat \
-    eza \
     zoxide \
-    fastfetch \
-    git-delta \
     fontconfig \
     xz-utils
 

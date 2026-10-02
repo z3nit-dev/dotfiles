@@ -26,25 +26,34 @@ echo
 echo "==> [2/6] FiraCode Nerd Font"
 "$DOTFILES_DIR/install/fonts.sh"
 
-# 2. Shell
+# 3. Shell
 echo
 echo "==> [3/6] Zsh y Oh My Zsh"
 "$DOTFILES_DIR/install/shell.sh"
 
-# 3. Node.js
+# 4. Node.js
 echo
 echo "==> [4/6] Node.js y herramientas frontend"
 "$DOTFILES_DIR/install/node.sh"
 
-# 4. Herramientas externas
+# 5. Herramientas externas
 echo
 echo "==> [5/6] Herramientas externas"
 "$DOTFILES_DIR/install/tools.sh"
 
-# 5. Configuración
+# 6. Configuración
 echo
 echo "==> [6/6] Configuración"
 "$DOTFILES_DIR/install/config.sh"
+
+# Compatibilidad con versiones de Git
+GIT_VERSION="$(git --version | awk '{print $3}')"
+
+if [ "$(printf '%s\n' "2.35.0" "$GIT_VERSION" | sort -V | head -n1)" = "2.35.0" ]; then
+    git config --global merge.conflictstyle zdiff3
+else
+    git config --global merge.conflictstyle diff3
+fi
 
 # Git identity
 echo
